@@ -24,9 +24,9 @@ Explanation: There are three ways to climb to the top.
 ```
 **解题思路**   
 * 1.状态转移方程
-  * 第n阶楼梯要不就从第n-1阶楼梯上来，要不就从第n-2阶楼梯上来。而第n-1阶楼梯上来的方式的数量有dp[n-1]冲，为什么呢？从第n-2阶楼梯上来就有dp[n-2]种，为什么呢？
+  * 第n阶楼梯要不就从第n-1阶楼梯上来，要不就从第n-2阶楼梯上来。而第n-1阶楼梯上来的方式的数量有dp[n-1]冲，为什么呢？从第n-2阶楼梯上来就有dp[n-2]种。
 * 2.自底往上运算
   
  **My submission**  
-  our run time beats 77.35 % of cpp submissions.  
-  our memory usage beats 55.32 % of cpp submissions.  
+  our run time beats 100 % of cpp submissions.  
+  our memory usage beats 100 % of cpp submissions.  
