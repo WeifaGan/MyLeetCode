@@ -23,4 +23,4 @@ def merge(arr,low,mid,high):
     elif j <= high:
         contianer.extend(arr[j:high+1])
     
-    arr[low:high+1] = contiane
+    arr[low:high+1] = contianer
