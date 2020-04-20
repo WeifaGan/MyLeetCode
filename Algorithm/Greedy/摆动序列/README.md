@@ -26,4 +26,6 @@ https://leetcode-cn.com/problems/wiggle-subsequence/
 **解题思路**  
 * 贪心：对于示例2的例子，5之后，10，13，15连续上升，那应该选择哪个好？按照局部最优应该选择15，因为这样子才能让10更大概率成为摇摆，
 但是贪心算法，比较暴力。需要O(n!)时间复杂度。
-* 动态规划：
+* 动态规划：有up和down两个状态
+分别有up状态序列和down状态序列记录摇摆序列的长度，对于示例2,1到17,17是up状态，1是down状态，所以up[i]=down[i]+1,down[i]=down[i-1]，之后10是down状态，down摇摆序列长度+1，up状态不变,所以down[i]=up[i-1]+1，up[i] = up[i-1]
+![](https://github.com/WeifaGan/MyLeetCode/blob/master/Image/%E6%8D%95%E8%8E%B72.JPG)
