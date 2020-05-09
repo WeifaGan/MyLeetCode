@@ -30,3 +30,4 @@ A solution set is:
 **解题思路**   
 * 用回溯模板即可  
 * 在backtrace(list,templist,candidatates,remain-candidatates[i],i)中，传入的是i,不是i+1，不然第i个数只能用1次了
+* 因为已经拍虚了，所以if remain<0,直接break退出同一层次的循环
