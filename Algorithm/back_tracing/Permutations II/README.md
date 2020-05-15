@@ -15,26 +15,5 @@ Output:
 ```
 
 *解题思路**  
-* 通过位置的状态来判断该位置是否已经被push进去  
-* 如何避免重复的templist被push进去list，是个难点。当第一个push进入的templist是[1,1,2,2],如果没有continue这个条件的判断,下一次push的是[1,1,2,2]，
-但是数值对应的pos是不一样的，如下图所示。那么如何避免第二个同样的templist push进入呢？其实如果第三个位置的2被push进去templist了，那么第四个2肯定也会进去，
-因为只有第四个位置的状态是false的。所以关键的在于防止第三个2被push进templsit,怎么做呢？其实程序是先访问第四个2再访问第三个2，所以当访问第四个2的时候，
-第3个位置的2肯定是false，所以我们可以判断前一个2的位置状态，如果前一个2的位置状态是2的false时候，我们是不应该把这个2push进入templist里面了。  
-![image](https://github.com/WeifaGan/MyLeetCode/tree/master/Algorithm/back_tracing/Images)
-* 为什么不能像combinesum2那么判断呢 https://leetcode.com/problems/combination-sum-ii/  
-原因是combinesum2里面backtrace是从i+1开的，而这里是从0开始的，当nums[i]=nums[i-1]时候，至少要两次的循环，那时候p>=2，所以p>1就不起作用了，条件被弱化了，排除了很多的可能性。
- ```
- for(int i=0;i<nums.size();i++)
-  {  
-
-      if(visited[i]) continue;
-      p++;
-      if(i>0&&p>1&&nums[i]==nums[i-1]){continue;}
-      visited[i]=true;
-      templist.push_back(nums[i]);
-      backtrace(list,templist,nums,visited);
-      templist.pop_back();
-      visited[i]=false;
-  }
- ```
+* 主要的难点是如何避免重复，使用一个列表记录被访问过的元素，当第一层循环时候，i=1时，temp=[1]，这个1是第二个1时候，第一个1应该是不需要push进去的，你也会发现此时visted=[0,1,0],所以continuet添加中的visted[i-1]==0就是用来检查对应位置的状态。如果不加入visted[i-1]的话，那第一个[1,1,2]也会被过滤。
 
